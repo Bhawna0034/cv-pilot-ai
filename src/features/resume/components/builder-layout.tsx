@@ -1,6 +1,7 @@
 import BuilderEditor from "./builder-editor";
 import BuilderHeader from "./builder-header";
 import BuilderSidebar from "./builder-sidebar";
+import BuilderToolbar from "./builder-toolbar";
 import { ResumePreview } from "./resume-preview";
 
 export default function BuilderLayout(){
@@ -10,7 +11,8 @@ export default function BuilderLayout(){
 
             <main className="grid grid-cols-[280px_1fr_420px] overflow-hidden">
                 <BuilderSidebar />
-                <BuilderEditor />   
+                {/* <BuilderEditor />    */}
+                <section> <BuilderToolbar /></section>
                 <ResumePreview/>
             </main>
         </div>
