@@ -129,3 +129,7 @@
     @apply font-sans;
   }
 }
+  .shadow-\[var\(--shadow-paper\)\] {
+        --tw-shadow: var(--shadow-paper);
+        box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow)
+    }

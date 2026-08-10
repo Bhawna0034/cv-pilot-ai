@@ -1,22 +1,32 @@
+export interface PersonalInformation {
+    firstName: string;
+    lastName: string;
+    professionalTitle: string;
+    email: string;
+    phone: string;
+    location: string;
+    linkedin: string;
+    github?: string;
+    portfolio?: string;
+    profilePhoto?: string;
+}
 export interface ResumeData {
+    personal: PersonalInformation;
+    professionalSummary: string;
+}
+
+export const defaultResumeData: ResumeData = {
     personal: {
-        firstName: string;
-        lastName: string;
-        professionalTitle: string;
-        email: string;
-        phone: string;
-        location: string;
-        linkedin: string;
-        github?: string;
-        portfolio?: string;
-        profilePhoto?: string;
-    };
-    professionalSummary: string[];
-    workExperience: string[];
-    education: string[];
-    projects: string[];
-    skills: string[];
-    certifications: string[];
-    languages: string[];
-    additionalSections: [];
+        firstName: "",
+        lastName: "",
+        professionalTitle: "",
+        email: "",
+        phone: "",
+        location: "",
+        linkedin: "",
+        github: "",
+        portfolio: "",
+        profilePhoto: ""
+    },
+    professionalSummary: ""
 }
