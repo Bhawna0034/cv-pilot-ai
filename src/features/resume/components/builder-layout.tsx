@@ -15,7 +15,7 @@ export default function BuilderLayout(){
                 {/* <BuilderEditor />    */}
                 <section> <BuilderToolbar /></section>
                 {/* <ResumePreview/> */}
-                <section className="border-l bg-slate-100">
+                <section className="border-l bg-slate-100 border-red-600">
                     <PreviewToolbar />
                 </section>
             </main>
