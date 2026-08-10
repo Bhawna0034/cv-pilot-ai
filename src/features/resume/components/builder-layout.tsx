@@ -13,9 +13,12 @@ export default function BuilderLayout(){
             <main className="grid grid-cols-[280px_1fr_420px] overflow-hidden">
                 <BuilderSidebar />
                 {/* <BuilderEditor />    */}
-                <section> <BuilderToolbar /></section>
+                <section> 
+                    <BuilderEditor />
+                
+                </section>
                 {/* <ResumePreview/> */}
-                <section className="border-l bg-slate-100 border-red-600">
+                <section className="border-l bg-white border-[#dcdee2]">
                     <PreviewToolbar />
                 </section>
             </main>

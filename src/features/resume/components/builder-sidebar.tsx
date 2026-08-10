@@ -26,7 +26,7 @@ const sections = [
 export default function BuilderSidebar() {
     const [activeSection, setActiveSection] = useState(sections[0].id);
     return (
-        <aside className="flex h-full min-h-0 flex-col border-r">
+        <aside className="flex h-full min-h-0 flex-col border-r border-[#dcdee2]">
             <div className="flex items-center gap-4 p-5">
                 <div className="w-8 h-8 rounded-lg bg-[#2563eb] text-white font-bold text-sm flex items-center justify-center">CV</div>
                 <div className="flex flex-col gap-0.5">
