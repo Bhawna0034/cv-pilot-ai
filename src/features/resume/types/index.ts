@@ -8,7 +8,7 @@ export interface PersonalInformation {
     linkedin: string;
     github?: string;
     portfolio?: string;
-    profilePhoto?: string;
+    
 }
 export interface ResumeData {
     personal: PersonalInformation;
@@ -26,7 +26,7 @@ export const defaultResumeData: ResumeData = {
         linkedin: "",
         github: "",
         portfolio: "",
-        profilePhoto: ""
+       
     },
     professionalSummary: ""
 }

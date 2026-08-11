@@ -9,6 +9,8 @@ interface PersonalInformationProps {
     onPersonalInfoChange: (field: keyof PersonalInformation, value: string) => void;
 }
 export default function PersonalInformationForm({data, onPersonalInfoChange}: PersonalInformationProps) {
+
+  
     return(
         <section className="border border-[#dcdee2] rounded-2xl shadow-sm">
             <div className="px-5 py-4 flex items-center justify-between">
@@ -108,28 +110,7 @@ export default function PersonalInformationForm({data, onPersonalInfoChange}: Pe
                             onChange={(e) => onPersonalInfoChange("portfolio", e.target.value)} className="px-3 py-1 border border-[#dcdee2] shadow-sm hover:border-blue-600 focus:border-blue-600 focus:ring focus:ring-blue-600/50 rounded-sm" />
                         </div>
                     </div>
-                    <div className="flex flex-col gap-1">
-                       <Label htmlFor="profilePhoto" className="flex items-center gap-2 text-sm font-medium text-gray-900">
-                            Profile Photo 
-                            <span className="text-xs text-gray-500">Optional</span>
-                       </Label>
-                       <div className="flex items-center gap-2.5">
-                        <ImageUp className="h-4 w-4 text-gray-600" />
-                        <div className="flex items-center justify-between w-full">
-                        <div className="flex flex-col gap-0.5">
-                            <span className="text-sm text-gray-900 font-medium">Upload a professional headshot</span>
-                            <span className="text-xs text-gray-500">Most US and UK recruiters prefer no photo.</span>
-                        </div>
-                        
-                        <div>
-                            <Input type="file" id="profilePhoto"
-                            accept="image/*"
-                            className="hidden" />
-                        <Label htmlFor="profilePhoto" className="px-3  py-1 border border-[#dcdee2] cursor-pointer rounded-lg text-sm text-gray-900 hover:bg-gray-100 hover:border-blue-600" >Choose a file </Label>
-                        </div>
-                        </div>
-                       </div>
-                    </div>
+                    
                 </form>
             </div>
 
