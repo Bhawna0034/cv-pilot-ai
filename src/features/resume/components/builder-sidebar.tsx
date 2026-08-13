@@ -40,7 +40,7 @@ export default function BuilderSidebar() {
                     <span className="text-xs text-[#787f8a]">Resume Health</span>
                     <span className="text-sm font-medium">78%</span>
                 </div>
-                <Progress value={78} className="w-full h-1.5" />
+                <Progress value={78} className="w-full h-1.5 " />
             </div>
             <div className="flex min-h-0 flex-1 flex-col pt-5">
                 <h3 className="text-sm text-gray-600 font-medium px-5">RESUME SECTIONS</h3>

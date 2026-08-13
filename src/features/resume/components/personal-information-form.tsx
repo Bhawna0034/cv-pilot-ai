@@ -22,11 +22,11 @@ export default function PersonalInformationForm({data, onPersonalInfoChange}: Pe
                     </div>
                 </div>
                 <div className="flex items-center gap-3">
-                    <button type="button" className="text-gray-600 hover:text-gray-900 hover:font-medium transition-colors flex items-center gap-2 cursor-pointer group">
+                    <button type="button" className="text-sm text-gray-600 hover:text-gray-900 hover:font-medium transition-colors flex items-center gap-2 cursor-pointer group">
                         <Pencil className="h-4 w-4 text-gray-600 group-hover:text-gray-900" />
                         Edit
                     </button>
-                    <button type="button" className="text-gray-600 hover:text-blue-700 hover:font-medium transition-colors flex items-center gap-2 cursor-pointer group">
+                    <button type="button" className="text-sm text-gray-600 hover:text-blue-700 hover:font-medium transition-colors flex items-center gap-2 cursor-pointer group">
                         <Sparkles className="h-4 w-4 text-gray-600 group-hover:text-blue-700" />
                         AI Assistant
                     </button>
