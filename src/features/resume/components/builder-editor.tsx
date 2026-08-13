@@ -2,9 +2,10 @@
 import { useState } from "react";
 import BuilderToolbar from "./builder-toolbar";
 import PersonalInformationForm from "./personal-information-form";
-import { defaultResumeData, ResumeData, WorkExperience as WorkExperienceType } from "../types";
+import { defaultResumeData, Education, ResumeData, WorkExperience as WorkExperienceType } from "../types";
 import ProfessionalSummary from "./professional-summary";
 import WorkExperience from "./work-experience";
+import Education from "./education";
 
 interface BuilderEditorProps {
     resumeData: ResumeData;
@@ -15,9 +16,13 @@ interface BuilderEditorProps {
     onWorkExperienceChange: (experienceId: string, field: keyof WorkExperienceType, value: string) => void;
     onAddAchievement: (experienceId: string) => void;
     onRemoveAchievement: (experienceId: string, achievementId: string) => void;
-    onAchievementChange: (experienceId: string, achievementId: string, value: string) => void
+    onAchievementChange: (experienceId: string, achievementId: string, value: string) => void;
+    onAddEducation: () => void;
+    onRemoveEducation: (educationId: string) => void;
+    onEducationChange: (educationId: string, field: keyof Education, value: string) => void;
+
 }
-export default function BuilderEditor({ resumeData, onPersonalInfoChange, onProfessionalSummary, onAddExperience, onRemoveExperience, onWorkExperienceChange, onAddAchievement, onRemoveAchievement, onAchievementChange }: BuilderEditorProps) {
+export default function BuilderEditor({ resumeData, onPersonalInfoChange, onProfessionalSummary, onAddExperience, onRemoveExperience, onWorkExperienceChange, onAddAchievement, onRemoveAchievement, onAchievementChange, onAddEducation, onRemoveEducation, onEducationChange}: BuilderEditorProps) {
 
 
     return (
@@ -34,6 +39,9 @@ export default function BuilderEditor({ resumeData, onPersonalInfoChange, onProf
                 </div>
                 <div className="border-t border-[#dcdee2] pt-8 px-8">
                     <WorkExperience data={resumeData.workExperience} onAddExperience={onAddExperience} onRemoveExperience={onRemoveExperience} onWorkExperienceChange={onWorkExperienceChange} onAddAchievement={onAddAchievement} onRemoveAchievement={onRemoveAchievement} onAchievementChange={onAchievementChange} />
+                </div>
+                 <div className="border-t border-[#dcdee2] pt-8 px-8">
+                    <Education data={resumeData.education} onAddEducation={onAddEducation} onRemoveEducation={onRemoveEducation} onEducationChange={onEducationChange} />
                 </div>
             </div>
         </section>

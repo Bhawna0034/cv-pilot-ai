@@ -6,8 +6,9 @@ import BuilderHeader from "./builder-header";
 import BuilderSidebar from "./builder-sidebar";
 import PreviewToolbar from "./preview-toolbar";
 import { ResumePreview } from "./resume-preview";
-import { defaultResumeData, ResumeData, WorkExperience } from "../types";
+import { defaultResumeData, Education, ResumeData, WorkExperience } from "../types";
 import { createExperience } from "../types/work-experience";
+import { addEducation } from "../types/education";
 
 const RESUME_STORAGE_KEY = "cvpilot-resume";
 
@@ -93,13 +94,13 @@ export default function BuilderLayout() {
 
   }
   const onWorkExperienceChange = (experienceId: string, field: keyof WorkExperience, value: string) => {
-   setResumeData((current) => ({
-    ...current,
-     workExperience: current.workExperience.map((exp) => exp.id === experienceId ? {
-      ...exp,
-      [field]: value
-     }: exp)
-   }))
+    setResumeData((current) => ({
+      ...current,
+      workExperience: current.workExperience.map((exp) => exp.id === experienceId ? {
+        ...exp,
+        [field]: value
+      } : exp)
+    }))
   }
 
   const onAddAchievement = (experienceId: string) => {
@@ -114,54 +115,82 @@ export default function BuilderLayout() {
             text: ""
           }
         ]
-      }: exp)
+      } : exp)
     }));
-    
+
 
   }
 
-const onRemoveAchievement = (
-  experienceId: string,
-  achievementId: string
-) => {
-  setResumeData((current) => ({
-    ...current,
-    workExperience: current.workExperience.map((experience) =>
-      experience.id === experienceId
-        ? {
+  const onRemoveAchievement = (
+    experienceId: string,
+    achievementId: string
+  ) => {
+    setResumeData((current) => ({
+      ...current,
+      workExperience: current.workExperience.map((experience) =>
+        experience.id === experienceId
+          ? {
             ...experience,
             achievements: experience.achievements.filter(
               (achievement) => achievement.id !== achievementId
             ),
           }
-        : experience
-    ),
-  }));
-};
-const onAchievementChange = (
-  experienceId: string,
-  achievementId: string,
-  value: string
-) => {
-  setResumeData((current) => ({
-    ...current,
-    workExperience: current.workExperience.map((experience) =>
-      experience.id === experienceId
-        ? {
+          : experience
+      ),
+    }));
+  };
+  const onAchievementChange = (
+    experienceId: string,
+    achievementId: string,
+    value: string
+  ) => {
+    setResumeData((current) => ({
+      ...current,
+      workExperience: current.workExperience.map((experience) =>
+        experience.id === experienceId
+          ? {
             ...experience,
             achievements: experience.achievements.map((achievement) =>
               achievement.id === achievementId
                 ? {
-                    ...achievement,
-                    text: value,
-                  }
+                  ...achievement,
+                  text: value,
+                }
                 : achievement
             ),
           }
-        : experience
-    ),
-  }));
-};
+          : experience
+      ),
+    }));
+  };
+
+  const onAddEducation = () => {
+    console.log(resumeData.education, ">>education")
+    setResumeData((current) => ({
+      ...current,
+      education: [
+        ...current.education,
+        addEducation()
+      ]
+    }))
+  }
+
+  const onRemoveEducation = (educationId: string) => {
+    setResumeData((current) => ({
+      ...current,
+      education: current.education.filter((edu) => edu.id !== educationId)
+    }))
+  }
+
+  const onEducationChange = (educationId: string, field: keyof Education, value: string) => {
+    setResumeData((current) => ({
+      ...current,
+      education: current.education.map((edu) => edu.id === educationId ? {
+         ...edu,
+         [field]: value
+      }: edu)
+    }))
+  }
 
   return (
     <div className="flex h-screen flex-col">
@@ -177,12 +206,15 @@ const onAchievementChange = (
           onAddExperience={onAddExperience}
           onRemoveExperience={onRemoveExperience}
           onWorkExperienceChange={onWorkExperienceChange}
-          onAddAchievement={onAddAchievement} 
+          onAddAchievement={onAddAchievement}
           onRemoveAchievement={onRemoveAchievement}
           onAchievementChange={onAchievementChange}
+          onAddEducation={onAddEducation}
+          onRemoveEducation={onRemoveEducation}
+          onEducationChange={onEducationChange}
         />
 
-        <section className="min-h-0 border-l border-[#dcdee2] bg-white">
+        <section className="min-h-0 flex-1 border-l border-[#dcdee2] bg-white">
           <PreviewToolbar />
 
           <ResumePreview

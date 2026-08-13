@@ -16,6 +16,7 @@ export interface ResumeData {
     personal: PersonalInformation;
     professionalSummary: string;
     workExperience: WorkExperience[];
+    education: Education[]
 }
 
 
@@ -51,6 +52,17 @@ export const defaultResumeData: ResumeData = {
                 },
             ],
         }
+    ],
+    education: [
+        {
+            id: "education-1",
+            school: "",
+            degree: "",
+            fieldOfStudy: "",
+            start: "",
+            end: ""
+            
+        }
     ]
 
 }
@@ -69,4 +81,13 @@ export interface WorkExperience {
     endDate: string;
     description: string;
     achievements: Achievement[]
+}
+
+export interface Education{
+    id: string;
+    school: string;
+    degree: string;
+    fieldOfStudy: string;
+    start: string;
+    end: string;
 }
